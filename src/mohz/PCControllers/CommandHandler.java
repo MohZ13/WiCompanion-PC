@@ -5,6 +5,7 @@ import mohz.Communication.DatagramReceiver;
 import mohz.NirCMD.NircmdHelper;
 
 import java.io.File;
+import java.io.IOException;
 import java.net.SocketException;
 import java.util.HashMap;
 
@@ -32,6 +33,7 @@ public class CommandHandler extends Task<Boolean> {
         while(true) {
             String cmd = commandReceiver.getDatagramData();
             if(cmd == null) continue;
+            cmd = cmd.toLowerCase();
             if(cmd.contains("play movie")) {
                 playProc();
             } else if(cmd.contains("resume")) {
@@ -49,10 +51,38 @@ public class CommandHandler extends Task<Boolean> {
             } else if(cmd.contains("close")) {
                 NircmdHelper.execute("sendkeypress alt+F4");
                 NircmdHelper.execute("speak text \"Closed\"");
+            } else if (cmd.contains("type")) {
+                type();
+            } else if (cmd.contains("ask cortana")) {
+                NircmdHelper.execute("sendkeypress 0x5B+Q");
+                type();
             } else {
                 NircmdHelper.execute("speak text \"Command does not exist!\"");
             }
         }
+    }
+
+    private static void type() throws IOException {
+        String input = commandReceiver.getDatagramData();
+
+        Thread t = new Thread(() -> {
+            int i = 0, len = input.length();
+            char ch;
+
+            try {
+                while (i < len) {
+                    ch = input.charAt(i);
+                    if (ch == ' ') {
+                        NircmdHelper.execute("sendkeypress spc");
+                    } else {
+                        NircmdHelper.execute("sendkeypress " + ch);
+                    }
+                    i++;
+                    Thread.sleep(15);
+                }
+            } catch (IOException | InterruptedException e) {e.printStackTrace();}
+        });
+        t.start();
     }
 
     private static void playProc() throws Exception {

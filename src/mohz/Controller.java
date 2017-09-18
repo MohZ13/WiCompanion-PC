@@ -3,6 +3,7 @@ package mohz;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextArea;
 import javafx.scene.paint.Paint;
+import mohz.NirCMD.NircmdHelper;
 import mohz.PCControllers.CommandHandler;
 import mohz.PCControllers.Keyboard;
 import mohz.PCControllers.Mouse;
@@ -27,7 +28,9 @@ public class Controller {
 
     private void setIpAddress() {
         try {
-            ipAddress.setText(InetAddress.getLocalHost().toString());
+            String ip = InetAddress.getLocalHost().toString();
+            ip = ip.substring(ip.indexOf("/") + 1);
+            ipAddress.setText(ip);
         } catch (UnknownHostException e) {
             ipAddress.setText("Not found!");
         }
