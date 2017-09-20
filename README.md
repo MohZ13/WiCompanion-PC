@@ -26,18 +26,14 @@ Also, perform last two steps specified in [Deployment](https://github.com/MohZ13
 ## Deployment
 
 For those who want to use it directly,
-1. If you have JDK or JRE already installed, download [this](https://drive.google.com/open?id=0B85YwrZQON4pdGZiMXhwbG5lX28). Then start using it by running "WiCompanion.jar".
+1. If you have JDK or JRE already installed, download [WiCompanion.jar](https://drive.google.com/open?id=0B85YwrZQON4pWmNlZ1lNOFFaZkk). Then start using it.
 
-- Else download [this](https://drive.google.com/open?id=0B85YwrZQON4pZ1ZuUkNZOFp6QlU).
+- Else download this [zip file](https://drive.google.com/open?id=0B85YwrZQON4pRUZJX3V0N1gxc3c).
 	- Unzip the file. Start using it by running "WiCompanion.exe" found inside the folder.
 
-2. Download nircmd.exe from this [link](https://drive.google.com/open?id=0B85YwrZQON4pSWxuTHY1cTBtM2s) or [page](http://www.nirsoft.net/utils/nircmd.html)
-3. Place it inside <Your Windows OS drive>:\Windows folder. (Mostly, it'll be C:\Windows)
+2. Download nircmd.exe from this [link](https://drive.google.com/open?id=0B85YwrZQON4pVkRLeGRMMnZlOFk) or [page](http://www.nirsoft.net/utils/nircmd.html)
+3. Place it inside \<Your Windows OS drive\>:\Windows folder. (Mostly, it'll be C:\Windows)
 
 ## Acknowledgement
 
 This wouldn't have been possible without this [tool](http://www.nirsoft.net/utils/nircmd.html) made by [Nir Sofer](http://www.nirsoft.net/about_nirsoft_freeware.html).
-
-## Future commits
-
-Soon, additional voice commands and other keyboard buttons will be added.
